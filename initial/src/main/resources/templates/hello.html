@@ -8,6 +8,13 @@
         <span th:if="${username}" th:text="${username}">authenticated user</span>
         <span th:unless="${username}">guest</span>!
     </h1>
+    
+    <!-- Display "You are an admin" text if the user is an admin -->
+    <div th:if="${isAdmin}">
+        You are an admin.
+    </div>
+    
+    <!-- Logout form -->
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>
