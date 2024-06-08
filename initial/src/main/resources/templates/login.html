@@ -5,7 +5,12 @@
 </head>
 <body>
     <div th:if="${param.error}">
-        Invalid username and password.
+        <div th:if="${param.errorType == 'invalid'}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.errorType == 'username'}">
+            User not found.
+        </div>
     </div>
     <div th:if="${param.logout}">
         You have been logged out.

@@ -1,6 +1,5 @@
 package com.example.securingweb;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -45,10 +44,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public static Object builder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'builder'");
     }
 }
