@@ -1,7 +1,7 @@
 package com.example.securingweb;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,15 +27,14 @@ public class RegistrationController {
     public RedirectView registerUser(@RequestParam String username, @RequestParam String password) {
         // Encode the password before saving it to the database
         String encodedPassword = passwordEncoder.encode(password);
-        
+
         // Create a new user entity
         User newUser = new User(username, encodedPassword);
-        
+
         // Save the user to the database
         userRepository.save(newUser);
-        
+
         // Redirect to the login page after successful registration
         return new RedirectView("/login");
     }
 }
-

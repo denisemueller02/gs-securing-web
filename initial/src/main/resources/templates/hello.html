@@ -4,7 +4,10 @@
     <title>Hello World!</title>
 </head>
 <body>
-    <h1 th:inline="text">Hello <span th:remove="tag" th:text="${#authentication.name}">thymeleaf</span>!</h1>
+    <h1 th:inline="text">Hello 
+        <span th:if="${username}" th:text="${username}">authenticated user</span>
+        <span th:unless="${username}">guest</span>!
+    </h1>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>
